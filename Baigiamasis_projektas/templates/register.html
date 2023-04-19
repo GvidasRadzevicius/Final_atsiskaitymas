@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <header>
+        
+        <h1 class="text-center my-4"> Užrašinės Projektas</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2 class="my-4">Registracija</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="email">El. paštas:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Įveskite el. pašto adresą" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Slaptažodis:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Įveskite slaptažodį" minlength="6" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Registruotis</button>
+                </div>
+            </form>
+            <div class="login-link">
+                <p>Jau turite paskyrą? <a href="{{ url_for('login') }}">Prisijungti</a></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        
+        <p class="text-center my-4">&copy; 2023. Visos teisės saugomos Gvido.</p>
+    </footer>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+

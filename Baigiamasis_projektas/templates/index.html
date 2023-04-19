@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Pagrindinis puslapis</h1>
+
+<h2>Kategorijos</h2>
+<ul>
+{% for category in categories %}
+    <li>
+        {{ category.name }}
+        <a href="{{ url_for('edit_category', category_id=category.id) }}">Redaguoti kategoriją</a>
+        <form method="POST" action="{{ url_for('delete_category', category_id=category.id) }}" style="display:inline;">
+            <button type="submit">Ištrinti kategoriją</button>
+        </form>
+        <a href="{{ url_for('filter_notes', category_id=category.id) }}">Filtruoti užrašus pagal šią kategoriją</a>
+    </li>
+{% endfor %}
+</ul>
+
+<h2>Užrašai</h2>
+<ul>
+{% for note in notes %}
+    <li>
+        <strong>{{ note.title }}</strong><br>
+        {{ note.content }}<br>
+        Kategorija: {{ note.category.name if note.category else 'Nėra kategorijos' }}
+        <a href="{{ url_for('edit_note', note_id=note.id) }}">Redaguoti užrašą</a>
+        <form method="POST" action="{{ url_for('delete_note', note_id=note.id) }}" style="display:inline;">
+            <button type="submit">Ištrinti užrašą</button>
+        </form>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

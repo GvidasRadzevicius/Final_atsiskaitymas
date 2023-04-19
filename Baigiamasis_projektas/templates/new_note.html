@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Naujas užrašas</h1>
+<form method="POST" action="{{ url_for('new_note') }}">
+    <label for="title">Užrašo pavadinimas:</label>
+    <input type="text" name="title" required>
+    <br>
+    <label for="content">Užrašo turinys:</label>
+    <textarea name="content" required></textarea>
+    <br>
+   
+    <label for="category_id">Kategorija:</label>
+    <select name="category_id">
+        {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <button type="submit">Sukurti užrašą</button>
+</form>
+{% endblock %}
+

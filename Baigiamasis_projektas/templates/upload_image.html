@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2>Įkelti nuotrauką</h2>
+        <form action="{{ url_for('upload_image', note_id=note.id) }}" method="POST" enctype="multipart/form-data">
+          {{ form.csrf_token }}
+          <div class="form-group">
+            <label for="file">Pasirinkite nuotrauką:</label>
+            <input type="file" class="form-control-file" id="file" name="file">
+          </div>
+          <button type="submit" class="btn btn-primary">Įkelti</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
